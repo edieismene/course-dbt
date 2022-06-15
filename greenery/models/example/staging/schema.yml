@@ -1,0 +1,43 @@
+version: 2
+
+models:
+  - name: stg_addresses
+    description: "Address information"
+    columns: 
+      - name: address_id
+        description: "unique identifier for an address/ primary key"
+        tests: 
+          - unique
+          - not_null 
+      - name: address
+        description: "Street address"
+      - name: zipcode
+        description: "Address zip code / area code"
+      - name: state
+        description: "Address state"
+      - name: country
+        description: "Address country"
+
+
+  - name: stg_events
+    description: "Information about order, user and product events"
+    columns:
+      - name: event_id
+        description: "Unique identifier for an event / primary key"
+        tests:
+          - unique
+          - not_null
+      - name: session_id
+        description: "The session id of the event"
+      - name: user_id
+        description: "User involved in the event"
+      - name: page_url
+        description: "URL of the page related to the event"
+      - name: created_at
+        description: "Timestamp of the event"
+      - name: event_type
+        description: "Type of event"
+      - name: order_id
+        description: "ID of the order related to the event"
+      - name: product_id
+        description: "ID of the product related to the event"

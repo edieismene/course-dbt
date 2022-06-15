@@ -4,6 +4,7 @@ sources:
   - name: greenery
     schema: public
     database: dbt
+    
     tables:
       - name: addresses
       - name: events
@@ -12,3 +13,7 @@ sources:
       - name: products
       - name: promos
       - name: users
+
+    freshness:
+      warn_after: {count: 24, period: hour}
+      error_after: {count: 48, period: hour}

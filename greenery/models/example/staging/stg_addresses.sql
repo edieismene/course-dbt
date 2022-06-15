@@ -1,22 +1,19 @@
-with
+with source_addresses as (
 
-source as (
 
-    select * from {{ source('public', 'addresses') }}
+    select *  from {{ source('greenery', 'addresses') }}
+)
+, final as (
 
-),
+    select
 
-standardized as (
+        address_id,
+        address as street_address,
+        zipcode as address_zip_code,
+        state as address_state,
+        country as address_country
 
-select
-    address_id as user_address_id,
-    address    as user_address,
-    zipcode    as user_zipcode,
-    state      as user_state,
-    country    as user_country
-
-from source
-
+    from source_addresses
 )
 
-select * from standardized
+select * from final

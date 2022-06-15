@@ -17,7 +17,7 @@ with source_orders as (
         tracking_id,
         shipping_service,
         estimated_delivery_at,
-        delivered_at
+        delivered_at,
         status as order_status
 
     from source_orders

@@ -1,9 +1,15 @@
+{{
+  config(
+    materialized='table'
+  )
+}}
+
 with user_orders_count as (
 
     select  user_id
             ,count(distinct order_id) as order_count
 
-    from   dbt_edie_n.stg_orders
+    from   {{ ref('stg_orders') }}
     group by 1
 
 )
